@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ParticieStorm</title>
+    <script src="phaser.js"></script>
+    <script src="phaser.2.4.4.particlestorm.min.js"></script>
+</head>
+<body>
+<script>
+    var manager = null;
+    var emitter = null;
+    var game = new Phaser.Game(800, 600, Phaser.AUTO, 'phaser-example', { preload: preload, create: create, update: update, render: render });
+    function preload() {
+        game.forceSingleUpdate = true;
+        game.load.image('logo','bonfire/particlestorm/logo-flat.png');
+        game.load.image('sky','bonfire/sprites/haze.png');
+        game.load.path='bonfire/particles/';
+        game.load.images(['fire1','fire2','fire3','smoke-puff']);
+    }
+    function create() {
+        game.add.image(0,0,'sky');
+        manager = this.game.plugins.add(Phaser.ParticleStorm);
+        var fire = {
+            image: [ 'fire1', 'fire2', 'fire3' ],
+            blendMode: 'HARD_LIGHT',
+            lifespan: { min: 500, max: 800 },
+            vx: { min: -1, max: 1 },
+            vy: { value: -2, delta: -0.1 },
+            scale: { value: 0.8, control : [ { x: 0, y: 1 }, { x: 1, y: 0.5 } ] },
+            alpha: { value: 1, control: [ { x: 0, y: 0 }, { x: 0.5, y: 1 }, { x: 0.6, y: 1 }, { x: 1, y: 0 } ] },
+            bringToFront: true,
+            emit: {
+                name: 'smoke',
+                value: 4,
+                control: [ { x: 0, y: 0 }, { x: 0.8, y: 0 }, { x: 1, y: 1 } ]
+            }
+        };
+
+        var smoke = {
+            image: 'smoke-puff',
+            lifespan: { min: 700, max: 1000 },
+            vx: 0,
+            vy: { value: { min: -3, max: -2 }, delta: -0.05, control: [ { x: 0, y: 1 }, { x: 1, y: 0.5 } ] },
+            scale: { value: { min: 0.4, max: 0.6 }, delta: 0.005, control: [ { x: 0, y: 1 }, { x: 0.6, y: 1 }, { x: 1, y: 0.25 } ] },
+            alpha: { value: 0.3, control:[ { x: 0, y: 0 }, { x: 0.3, y: 1 }, { x: 1, y: 0 } ] },
+            rotation: { value: 0, delta: { min: -2, max: 2 } },
+            sendToBack: true
+        };
+
+        manager.addData('fire', fire);
+        manager.addData('smoke', smoke);
+        emitter = manager.createEmitter();
+        emitter.addToWorld();
+        emitter.emit('fire', [380, 420], 400, { repeat: -1, frequency: 30 });
+        game.add.image(432, 487, 'logo');
+    }
+    function update() {
+
+    }
+    function render() {
+
+    }
+</script>
+</body>
+</html>

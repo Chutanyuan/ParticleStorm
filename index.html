@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ParticieStorm</title>
+    <script src="phaser.js"></script>
+    <script src="phaser.2.4.4.particlestorm.min.js"></script>
+</head>
+<body>
+<script>
+    var game = new Phaser.Game(800, 600, Phaser.AUTO, 'phaser-example', { preload: preload, create: create, update: update, render: render });
+    function preload() {
+        game.forceSingleUpdate = true;
+    }
+    function create() {
+        var manager = game.plugins.add(Phaser.ParticleStorm);
+        var data = {
+            lifespan: 3000,
+            red: { value: 255, control: [ { x: 0, y: 1 }, { x: 1, y: 0 } ] },
+            blue: { value: 255, control: [ { x: 0, y: 0 }, { x: 1, y: 1 } ] },
+            vx: { min: -1, max: 1 },
+            vy: { min: -1, max: 1 }
+        };
+
+        manager.addData('basic', data);
+        var line = manager.createLineZone(100, 450, 700, 450);
+        var emitter = manager.createEmitter(Phaser.ParticleStorm.PIXEL, new Phaser.Point(0, -0.04));
+        emitter.renderer.pixelSize = 4;
+        emitter.addToWorld();
+        emitter.emit('basic', 0, 0, { zone: line, total: 4, repeat: -1, frequency: 10 });
+        game.add.image(432, 487, 'logo');
+    }
+    function update() {
+
+    }
+    function render() {
+
+    }
+</script>
+</body>
+</html>
