@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>findpath</title>
+    <script src="phaser.js"></script>
+    <script src="findPath/js/TilemapLayer.findTilePath.js"></script>
+</head>
+<body>
+<script>
+    var game = new Phaser.Game(800,600,Phaser.AUTO,'findpath',{
+        preload:preload,
+        create:create,
+        update:update
+    });
+    function preload() {
+        game.load.spritesheet('hero','findpath/assets/hero.png',32,32);
+        game.load.image('maptiles','findpath/assets/maptiles.png');
+        game.load.tilemap('worldmap','findpath/assets/worldmap.json',null,Phaser.Tilemap.TILED_JSON);
+    }
+    var map;
+    var mapLayer;
+    var hero;
+    function create() {
+        map = game.add.tilemap('worldmap');
+        map.addTilesetImage('maptiles');
+        mapLayer = map.createLayer('layer-1');
+        mapLayer.resizeWorld();
+        //设置碰撞的位置
+        map.setCollision([2,3,4],true,mapLayer);
+
+        hero = game.add.sprite(5*32,3*32,'hero');
+        hero.animations.add('down',[1,0,1,2],8,true);
+        hero.animations.add('left',[4,3,4,5],8,true);
+        hero.animations.add('right',[7,6,7,8],8,true);
+        hero.animations.add('up',[10,9,10,11],8,true);
+        hero.goingX = hero.x;
+        hero.goingY = hero.y;
+        hero.isMoving = false;
+        hero.movePath = [];
+        hero.moveTween = game.add.tween(hero);
+        hero.moveTween.onComplete.add(function () {
+            hero.isMoving = false;
+        },this);
+        game.camera.follow(hero);
+        mapLayer.inputEnabled = true;
+        mapLayer.events.onInputDown.add(function () {
+            var x0 = mapLayer.getTileX(hero.goingX);
+            var y0 = mapLayer.getTileY(hero.goingY);
+            var x1 = mapLayer.getTileX(game.input.activePointer.worldX);
+            var y1 = mapLayer.getTileY(game.input.activePointer.worldY);
+            hero.movePath = mapLayer.findTilePath(x0,y0,x1,y1,map.collideIndexes)||hero.movePath;
+            console.log('her move Path'+hero.movePath);
+        },this);
+    }
+    function update() {
+        if (!hero.isMoving){
+            if(hero.movePath.length>0){
+                hero.isMoving = true;
+                var nextTile = hero.movePath.pop();
+                hero.goingX = nextTile.worldX;
+                hero.goingY = nextTile.worldY;
+                hero.moveTween.timeline = [];
+                hero.moveTween.to({
+                    x:hero.goingX,
+                    y:hero.goingY
+                },200,'Linear',true);
+                if (hero.goingX<hero.x){
+                    hero.animations.play('left');
+                }else if (hero.goingX>hero.x){
+                    hero.animations.play('right');
+                }else if (hero.goingY<hero.y){
+                    hero.animations.play('up');
+                }else if (hero.goingY>hero.y){
+                    hero.animations.play('down');
+                }
+            }else{
+                hero.animations.stop();
+            }
+        }
+    }
+</script>
+</body>
+</html>

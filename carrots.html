@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>carrots</title>
+    <script src="phaser.js"></script>
+    <script src="phaser.2.4.4.particlestorm.min.js"></script>
+</head>
+<body>
+<script>
+
+    var game = new Phaser.Game(800,600,Phaser.AUTO,'carrots',{preload:preload,create:create,update:update});
+    function preload() {
+        game.forceSingleUpdate = true;
+        game.load.image('carrot','bonfire/particlestorm/logo-flat.png');
+    }
+    var manager = null;
+    var emitter = null;
+    var image = null;
+    function create() {
+        manager = this.game.plugins.add(Phaser.ParticleStorm);
+        var data = {
+            lifespan:0
+        };
+        manager.addData('basic',data);
+        emitter = manager.createEmitter(Phaser.ParticleStorm.PIXEL);
+        emitter.renderer.pixelSize = 4;
+        emitter.addToWorld();
+        image = manager.createImageZone('carrot');
+        emitter.emit('basic',0,200,{zone:image,full:true,spacing:8,setColor:true});
+        game.input.onDown.addOnce(touchEffect,this);
+    }
+    function update() {
+
+    }
+    function touchEffect(pointer) {
+        emitter.forEachNew(setVelocity,this,pointer.x,pointer.y);
+        game.time.events.add(4000,newCarrot,this);
+    }
+
+    function setVelocity(particle, x, y) {
+
+        particle.setLife(9000);
+        particle.radiateFrom(x, y, 3);
+
+    }
+    function newCarrot() {
+
+        emitter.emit('basic',0,200,{zone:image,full:true,spacing:8,setColor:true});
+
+        game.input.onDown.addOnce(touchEffect, this);
+
+    }
+
+</script>
+</body>
+</html>
