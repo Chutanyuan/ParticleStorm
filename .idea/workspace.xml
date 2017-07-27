@@ -2,21 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a7c329e6-bdcd-4fb9-88b7-a482b0d40d2b" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bonfire/particlestorm/1.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bonfire/particlestorm/2.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bonfire/particlestorm/3.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bonfire/particlestorm/4.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bonfire/particlestorm/5.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/carrots/carrot.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/findPath/assets/hero.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/findPath/assets/loading.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/findPath/assets/maptiles.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/carrots.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/findPath/assets/worldmap.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/findPath/js/TilemapLayer.findTilePath.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/findpath.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/box2d/box_touch/crate.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/box2d/box_touch/ground.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/box2d-box-touch.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gravityWell.html" afterPath="$PROJECT_DIR$/gravityWell.html" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -30,11 +19,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="findpath.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="findpath.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/findpath.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="188">
-              <caret line="43" column="16" lean-forward="true" selection-start-line="43" selection-start-column="16" selection-end-line="43" selection-end-column="16" />
+            <state relative-caret-position="318">
+              <caret line="47" column="4" lean-forward="false" selection-start-line="47" selection-start-column="4" selection-end-line="47" selection-end-column="4" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="box2d-box-touch.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/box2d-box-touch.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="493">
+              <caret line="39" column="66" lean-forward="false" selection-start-line="39" selection-start-column="66" selection-end-line="39" selection-end-column="66" />
               <folding />
             </state>
           </provider>
@@ -61,6 +60,7 @@
         <option value="$PROJECT_DIR$/gravityWell.html" />
         <option value="$PROJECT_DIR$/carrots.html" />
         <option value="$PROJECT_DIR$/findpath.html" />
+        <option value="$PROJECT_DIR$/box2d-box-touch.html" />
       </list>
     </option>
   </component>
@@ -78,7 +78,7 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="184" />
+    <option name="x" value="129" />
     <option name="y" value="23" />
     <option name="width" value="1236" />
     <option name="height" value="877" />
@@ -109,13 +109,13 @@
             <path>
               <item name="ParticleStorm" type="b2602c69:ProjectViewProjectNode" />
               <item name="ParticleStorm" type="462c0819:PsiDirectoryNode" />
-              <item name="findPath" type="462c0819:PsiDirectoryNode" />
+              <item name="box2d" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ParticleStorm" type="b2602c69:ProjectViewProjectNode" />
               <item name="ParticleStorm" type="462c0819:PsiDirectoryNode" />
-              <item name="findPath" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
+              <item name="box2d" type="462c0819:PsiDirectoryNode" />
+              <item name="box_touch" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -133,11 +133,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/box2d/box_touch" />
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/findPath" />
       <recent name="$PROJECT_DIR$/carrots" />
       <recent name="$PROJECT_DIR$/bonfire/particlestorm" />
-      <recent name="$PROJECT_DIR$/bonfire/sprites" />
-      <recent name="$PROJECT_DIR$/bonfire/particles" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -232,15 +232,15 @@
       <workItem from="1501055662442" duration="959000" />
       <workItem from="1501057340963" duration="72000" />
       <workItem from="1501057487386" duration="4664000" />
-      <workItem from="1501117757778" duration="13448000" />
+      <workItem from="1501117757778" duration="15520000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="19143000" />
+    <option name="totallyTimeSpent" value="21215000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="184" y="23" width="1236" height="877" extended-state="0" />
+    <frame x="129" y="23" width="1236" height="877" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1580247" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -249,7 +249,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32992327" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -268,7 +268,9 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <option name="time" value="1" />
+    </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
@@ -437,10 +439,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/box2d-plugin-full.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/findpath.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="188">
-          <caret line="43" column="16" lean-forward="true" selection-start-line="43" selection-start-column="16" selection-end-line="43" selection-end-column="16" />
+        <state relative-caret-position="318">
+          <caret line="47" column="4" lean-forward="false" selection-start-line="47" selection-start-column="4" selection-end-line="47" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/box2d-box-touch.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="39" column="66" lean-forward="false" selection-start-line="39" selection-start-column="66" selection-end-line="39" selection-end-column="66" />
           <folding />
         </state>
       </provider>

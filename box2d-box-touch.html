@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>boxTouch</title>
+    <script src="phaser.js"></script>
+    <script src="box2d-plugin-full.js"></script>
+</head>
+<body>
+<script>
+    var game = new Phaser.Game(800,600,Phaser.AUTO,'box touch',{
+        preload:preload,
+        create:create,
+        update:update
+    });
+    function preload() {
+        game.load.image("crate", "box2d/box_touch/crate.png");
+        game.load.image("ground", "box2d/box_touch/ground.png");
+    }
+    function create() {
+        game.stage.backgroundColor = "#222222";
+        game.physics.startSystem(Phaser.Physics.BOX2D);
+        game.physics.box2d.gravity.y = 500;
+        var groundSprite = game.add.sprite(320, 460, "ground");
+        game.physics.box2d.enable(groundSprite);
+        groundSprite.body.static = true;
+        game.input.onDown.add(addCrate, this);
+    }
+    function update() {
+
+    }
+    function addCrate(e){
+         var currentBody = game.physics.box2d.getBodiesAtPoint(e.x, e.y);
+         if(currentBody.length>0){
+             if(!currentBody[0].static){
+                 currentBody[0].sprite.destroy();
+            }
+        }
+        else{
+             var crateSprite = game.add.sprite(e.x, e.y, "crate");
+            game.physics.box2d.enable(crateSprite);
+        }
+    }
+</script>
+</body>
+</html>
